@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+{%for i in orders%}
+<p>{{i.order_id}} {{i.customer_id}} {{i.employee_id}} {{i.order_date}} {{i.ship_name}}</p>
+{%endfor%}
+
+</body>
+</html>

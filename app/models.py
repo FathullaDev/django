@@ -30,15 +30,6 @@ class Products(models.Model):
         return self.product_name
 
 
-class OrderDetails(models.Model):
-    order_id=models.AutoField(primary_key=True)
-    product=models.ForeignKey(Products,on_delete=models.CASCADE,default=1)
-    unit_price=models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return self.unit_price
-
-
 class Customers(models.Model):
     customer_id=models.AutoField(primary_key=True)
     company_name=CharField(max_length=100)
@@ -64,23 +55,6 @@ class Orders(models.Model):
 
     def __str__(self):
         return self.ship_name
-
-
-
-class CustomerDemographics(models.Model):
-    customer_type_id=AutoField(primary_key=1)
-    customer_desc=CharField(max_length=100)
-
-    def __str__(self):
-        return self.customer_desc
-
-
-class CustomerCustomerDemo(models.Model):
-    customer=ForeignKey(Customers,on_delete=models.CASCADE,default=1)
-    customer_type=ForeignKey(CustomerDemographics,on_delete=models.CASCADE,default=1)
-
-    def __str__(self):
-        return str(self.customer)
 
 
 class Shippers(models.Model):
